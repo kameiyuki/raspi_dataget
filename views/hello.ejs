@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="../css/hello.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <link rel="stylesheet" href="../bootstrap/bootstrap.css">
+        <script type="text/javascript" src="../bootstrap/jquery-3.6.0.js"></script>
+        <script type="text/javascript" src="../bootstrap/bootstrap.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>亀井家データ測定値一覧</h2>
+               <!-- 問合せフォーム -->
+               <div class="container py-4" id="contact">
+                <h2>日時を入力してください(YYYYMMDD形式)</h2>
+                <form method="post">
+                    <div class="form-group">
+                    <input type="text" class="form-control" name="day">
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+            <canvas id="myChart"></canvas>
+        </div>
+    </body>
+<script type="text/javascript">
+    console.log(<%= array_data[1] %>);
+    var chart_labels=<%- JSON.stringify(array_data) %>;
+    for(i=0;i<chart_labels.length;i++){
+        console.log(chart_labels[i]);
+    }
+
+
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: <%- JSON.stringify(array_time) %>,
+        datasets: [{
+            label: '亀井家室温',
+            data: <%- JSON.stringify(array_data) %>,
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+</html>

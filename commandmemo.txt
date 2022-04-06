@@ -1,0 +1,8 @@
+scp -r C:\Users\kamei\Desktop\js_raspi kamei@172.16.10.17:~/
+
+create table users(user_id int auto_increment primary key,username varchar(20) not null,password varchar(20) not null,lastname varchar(20) not null,firstname varchar(20) not null);
+
+create user user1@"%" identified with mysql_natibe_password by "Pl0h4h55@";
+grant create on python_db.user1% to user1@'%'
+create table user1_20220324(time timestamp, tmp float(4,2));
+create table hello (time timestamp, tmp float(4,2));

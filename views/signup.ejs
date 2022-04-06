@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+ <html lang="ja"> 
+     <head> 
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>新規登録</title>
+        <script src="script.js"></script> 
+    </head> 
+    <body>
+        <div class="login">
+            <div class="login-triangle"></div>
+            <h2 class="login-header">sign up to your account</h2>          
+            <form method="POST" class="login-container">
+                <p><input type="text" name="lastname" title="lastname" placeholder="苗字"></p>
+                <p><input type="text" name="firstname" title="firstname" placeholder="名前"></p>
+                <p><input type="text" name="username" title="username" placeholder="username"></p>
+                <p><input type="text" name="password" title="password" placeholder="password"></p>
+                <div class="error-message">
+                    <% if(error_id==1){ %>
+                    <p>空白があります。すべての欄を入力してください</p>
+                    <% }  %>
+                    <% if(error_id==2){ %>
+                    <p>ユーザネームが既に登録済みです。別のユーザネームにしてください</p>
+                    <% }  %>
+                    <% if(error_id==3){ %>
+                        <p>テストです</p>
+                    <% }  %>    
+                </div>
+                <p><input type="submit" value="新規登録"></p>
+                <!--<a href="./"><input type="submit" value="ログイン"></a>-->
+            </form>
+        </div>
+    </body> 
+</html>
